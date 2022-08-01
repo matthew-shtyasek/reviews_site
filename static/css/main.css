@@ -1,0 +1,5 @@
+.top-menu li {
+    display: table-cell;
+    padding: 10pt 5pt;
+    border: gray solid 0.1vh;
+}

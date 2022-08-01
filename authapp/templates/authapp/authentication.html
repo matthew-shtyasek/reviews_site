@@ -1,0 +1,12 @@
+{% extends 'authapp/base.html' %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" title="{{ submit_title|default:'Войти'|capfirst }}">
+        {% if is_login|default_if_none:True %}
+            <a href="{% url 'auth:sing_in_page' %}">Регистрация</a>
+        {% endif %}
+    </form>
+{% endblock %}

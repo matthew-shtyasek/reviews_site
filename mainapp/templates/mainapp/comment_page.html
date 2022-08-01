@@ -1,0 +1,19 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block alt_js %}
+    <script src="{% static 'js/comment.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ item.name }}</h2>
+    <p>{{ item.user.username }}:</p>
+    <div class="comment-field">
+        <p>{{ item.desc }}</p>
+    </div>
+    <img src="{{ item.image.url }}" width="200vh" alt="{{ item.image.url }} not found!">
+    {% if user == item.user %}
+        <a class="change-button" href="{% url 'main:comment_page' item.pk 1 %}">Изменить</a>
+    {% endif %}
+    <a href="{{ back_url }}">Назад</a>
+{% endblock %}

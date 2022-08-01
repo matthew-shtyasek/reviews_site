@@ -1,0 +1,12 @@
+{% extends 'mainapp/base.html' %}
+
+
+{% block content %}
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <a href="{% url 'mainapp:comment_page' comment.pk %}">{{ comment.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
